@@ -1,0 +1,27 @@
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+
+<body style="text-align: center;">
+<script>
+    function pulaLinha(params) {
+        document.write('<br>')
+        document.write('<br>')
+    }
+    function mostra(frase){
+        document.write(frase);
+        pulaLinha()
+    }
+
+    function calculaImc(peso, altura){
+
+        let imc = peso / (altura * altura)
+        return imc
+    }
+
+    var imc1 = calculaImc(107, 1.95)
+    var imc2 = calculaImc(95, 1.81)
+    
+    mostra(imc1)
+    mostra(imc2)
+
+</script>
+</body>
