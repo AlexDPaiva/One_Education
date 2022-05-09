@@ -1,0 +1,28 @@
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+
+<input type="text">
+<button onclick=verifica()>COMPARE</button>
+
+<script>
+
+let segredo = Math.round(Math.random() * 10)
+let input = document.querySelector('input')
+
+
+function verifica(){
+    if (input.value == segredo){
+
+    alert("VOCÊ ACERTOU")
+}else{
+    alert("VOCÊ ERROU")
+}
+input.value = ''
+input.focus()
+document.write("O numero secreto era " + segredo)
+
+
+
+}
+
+
+</script>
