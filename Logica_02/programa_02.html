@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Programa 02</title>
+</head>
+<body>
+	<canvas width="600" height="400"></canvas>
+
+	<script type="text/javascript">
+
+		function desenhaQuadrado(x, y, cor) {
+
+		let tela = document.querySelector('canvas');
+		let pincel = tela.getContext('2d')
+
+		pincel.fillStyle= cor;
+		pincel.fillRect(x, y, 50, 50)
+		pincel.fillStroke = 'black'
+		pincel.strokeRect(x, y, 50, 50)
+		}
+		let x = 0
+		while(x < 600){
+			desenhaQuadrado(x, 0, 'green')
+			x = x + 50;
+		}
+
+
+
+	</script>
+</body>
+</html>
