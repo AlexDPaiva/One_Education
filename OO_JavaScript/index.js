@@ -1,41 +1,18 @@
-class Cliente {
-    nome;
-    cpf;
-}
+import {Cliente} from "./Cliente.js";
+import {Gerente} from "./Funcionario/Gerente.js"
+import {Diretor} from "./Funcionario/Diretor.js"
+import {SistemaAutenticacao} from "./SistemaAutenticacao.js"
 
-class ContaCorrente{
-    agencia;
-    _saldo;
+const diretor =  new Diretor("Rodrigo", 10000, 12345678900);
+diretor.cadastrarSenha("123456")
+const gerente =  new Gerente("Ricardo",  5000, 12378945601);
+gerente.cadastrarSenha("123");
 
-    sacar(valor){
-      if(this._saldo >= valor){
-        this._saldo-= valor;
-        return  valor;
-      }
-    }
-    depositar(valor){
-      if (valor > 0){
-        this._saldo += valor;
-      }
-    }
-}
+const cliente = new Cliente("Lais", 78945612379, "456");
+const gerenteEstaLogado = SistemaAutenticacao.login(gerente, "123");
+const diretorEstaLogado = SistemaAutenticacao.login(diretor, "123456");
 
 
-const cliente01 = new Cliente();
-const cliente02 = new Cliente();
+const clienteEstaLogado = SistemaAutenticacao.login(cliente, "456");
 
-cliente01.nome = "Alex";
-cliente01.cpf = 32322290807;
-
-cliente02.nome = "Jennifer";
-cliente02.cpf = 09099933309;
-
-let contaAlex = new ContaCorrente();
-contaAlex.saldo = 0;
-contaAlex.agencia = 1001;
-
-contaAlex.depositar(100.00)
-contaAlex.sacar(50.00)
-
-
-console.log(`Oi ${cliente01} seu saldo é de ${contaAlex.saldo} reais.`);
+console.log(gerenteEstaLogado, diretorEstaLogado, clienteEstaLogado);
